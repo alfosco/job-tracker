@@ -1,9 +1,11 @@
 <h3>All Companies</h3>
 
+<%= button_to "Add Another Company", new_company_path, :method => "get" %>
+
 <% @companies.each do |company| %>
   <div class=company_<%= company.id %>>
     <%= link_to company.name, company_path(company) %><br>
-    <%= link_to "Edit", edit_company_path(company) %>
-    <%= link_to "Delete", company_path(company), method: "delete" %>
+    <%= button_to "Edit", edit_company_path(company), method: "get" %>
+    <%= button_to "Delete", company_path(company), method: "delete" %>
   </div>
 <% end %>

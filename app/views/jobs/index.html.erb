@@ -1,5 +1,15 @@
 All Jobs for <strong><%= @company.name %></strong>
 
+<%= button_to "Add Another Job", new_company_job_path, :method => "get" %>
+
 <% @jobs.each do |job| %>
-  <ul><%= job.title %> at <%= job.company.name %></ul>
+  <ul>
+    <li class = "job">
+      <%= link_to job.title, company_job_path(@company, job) %> at <%= job.company.name %>
+      <br>
+      <%= button_to "Edit", edit_company_job_path(@company, job), method: "get" %>
+      <br>
+      <%= button_to "Delete", company_job_path(@company, job), method: "delete" %>
+    </li>
+  </ul>
 <% end %>
