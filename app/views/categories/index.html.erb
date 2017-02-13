@@ -1,0 +1,17 @@
+<h3> All Categories </h3>
+
+<%= button_to "Add Another Category", new_category_path, :method => "get" %>
+
+<% @categories.each do |category| %>
+  <div class=category_<%= category.id %>>
+    <ul>
+      <li>
+        <%= link_to category.title, category_path(category) %>
+        <br>
+        <%= button_to "Edit", edit_category_path(category), method: "get" %>
+        <br>
+        <%= button_to "Delete", category_path(category), method: "delete" %>
+      </li>
+    </ul>
+  </div>
+<% end %>
